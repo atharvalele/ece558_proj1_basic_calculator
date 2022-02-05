@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BasicCalculator</string>
+    <string name="operand1_text">Enter 1st signed number</string>
+    <string name="operand2_text">Enter 2nd signed number</string>
+    <string name="result_text">Press an operator to get a result!</string>
+</resources>

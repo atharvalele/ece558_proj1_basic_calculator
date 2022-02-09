@@ -1,8 +1,8 @@
 package edu.pdx.atharva.BasicCalculator
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import edu.pdx.atharva.BasicCalculator.databinding.ActivityMainBinding
 import kotlin.math.abs
 import kotlin.math.sqrt
@@ -13,10 +13,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Set the view binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Setup button onClickListeners
+        // Set up button onClickListeners
         binding.addBtn.setOnClickListener { addBtn() }
         binding.subBtn.setOnClickListener { subBtn() }
         binding.multBtn.setOnClickListener { multBtn() }
@@ -49,7 +51,8 @@ class MainActivity : AppCompatActivity() {
             val op2 = binding.op2Input.text.toString().toDouble()
 
             val result = op1 + op2
-            binding.resultsText.text = result.toString()
+            // Limit output to 4 decimal places
+            binding.resultsText.text = "%.4f".format(result)
         }
     }
 
@@ -60,7 +63,8 @@ class MainActivity : AppCompatActivity() {
             val op2 = binding.op2Input.text.toString().toDouble()
 
             val result = op1 - op2
-            binding.resultsText.text = result.toString()
+            // Limit output to 4 decimal places
+            binding.resultsText.text = "%.4f".format(result)
         }
     }
 
@@ -71,7 +75,8 @@ class MainActivity : AppCompatActivity() {
             val op2 = binding.op2Input.text.toString().toDouble()
 
             val result = op1 * op2
-            binding.resultsText.text = "%.3f".format(result)
+            // Limit output to 4 decimal places
+            binding.resultsText.text = "%.4f".format(result)
         }
     }
 
@@ -87,7 +92,8 @@ class MainActivity : AppCompatActivity() {
                 binding.resultsText.text = "ERROR"
             } else {
                 val result = op1 / op2
-                binding.resultsText.text = "%.3f".format(result)
+                // Limit output to 4 decimal places
+                binding.resultsText.text = "%.4f".format(result)
             }
         }
     }
@@ -107,7 +113,8 @@ class MainActivity : AppCompatActivity() {
         if (checkOperands(true, false)) {
             val op1 = binding.op1Input.text.toString().toDouble()
             val result = sqrt(abs(op1))
-            binding.resultsText.text = "%.3f".format(result)
+            // Limit output to 4 decimal places
+            binding.resultsText.text = "%.4f".format(result)
         }
     }
 }
